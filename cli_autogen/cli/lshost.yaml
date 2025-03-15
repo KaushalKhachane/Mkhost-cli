@@ -1,0 +1,8 @@
+command:
+  command_text: lshost
+  identifier: VIEWID_LSHOST
+  type: VIEW
+  obj_type: IC_TYPE_Host
+  component: IC
+  message_file_index: 102
+  response_type: svc_info

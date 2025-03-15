@@ -1,35 +1,40 @@
 #include "cli.h"
+#include "icoc.h"
 #include <stdio.h>
 #include <string.h>
 
+void print_usage() {
+    printf("Usage:\n");
+    printf("  ./cli mkhost -name <host_name> -ip <ip_address>\n");
+    printf("  ./cli lshost\n");
+}
+
 int main(int argc, char *argv[]) {
-    if (argc < 4) {
-        printf("Usage: %s mkhost -name <host_name> -ip <ip_address>\n", argv[0]);
+    // Initialize cache on program start
+    init_cache();
+
+    if (argc < 2) {
+        print_usage();
         return -1;
     }
 
     if (strcmp(argv[1], "mkhost") == 0) {
-        char *host_name = NULL;
-        char *ip_address = NULL;
-
-        for (int i = 2; i < argc; i++) {
-            if (strcmp(argv[i], "-name") == 0 && i + 1 < argc) {
-                host_name = argv[i + 1];
-                i++;
-            } else if (strcmp(argv[i], "-ip") == 0 && i + 1 < argc) {
-                ip_address = argv[i + 1];
-                i++;
-            }
-        }
-
-        if (host_name != NULL && ip_address != NULL) {
-            mkhost_handler(host_name, ip_address);
-        } else {
-            printf("Invalid parameters for mkhost\n");
+        if (argc < 6) {
+            printf("Error: Missing parameters\n");
+            print_usage();
             return -1;
         }
-    } else {
-        printf("Invalid command\n");
+
+        char *host_name = argv[3];
+        char *ip_address = argv[5];
+        mkhost_handler(host_name, ip_address);
+    } 
+    else if (strcmp(argv[1], "lshost") == 0) {
+        lshost_handler();
+    } 
+    else {
+        printf("Error: Unknown command '%s'\n", argv[1]);
+        print_usage();
         return -1;
     }
 
