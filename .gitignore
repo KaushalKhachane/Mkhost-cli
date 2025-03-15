@@ -1,0 +1,8 @@
+# Ignore compiled object files
+*.o
+
+# Ignore vscode settings folder
+.vscode/
+
+# Optionally ignore specific folder object files
+src2/*.o

@@ -22,6 +22,7 @@ void add_to_icoc(UTOD *utod) {
     FILE *file = fopen("cache.dat", "wb");
     if (file) {
         fwrite(&cache, sizeof(UTOD), 1, file);
+        // printf("%s", utod->host_name);
         fclose(file);
     }
 }
@@ -30,7 +31,8 @@ void print_from_icoc() {
     if (strlen(cache.host_name) == 0) {
         printf("No cached hosts found.\n");
         return;
-    }
-    
+    }   
+
+    printf("Printing From ICOC Cache: \n");
     printf("Host = %s, IP = %s\n", cache.host_name, cache.ip_address);
 }
