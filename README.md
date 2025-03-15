@@ -1,4 +1,3 @@
-Here's a sample **README.md** file for your CLI project. It covers all the essential details, including setup, usage, and structure.
 
 ---
 
@@ -130,8 +129,7 @@ clean:
 ---
 
 ## 📄 **License**
-This project is licensed under the MIT License.  
+This project is licensed under the Kaushal License.  
 
 ---
 
-Would you like to customize any part of this? 😎
