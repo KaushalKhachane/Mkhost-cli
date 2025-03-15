@@ -1,0 +1,15 @@
+command:
+  command_text: mkhost
+  identifier: ACTIONID_MKHOST
+  type: ACTION
+  obj_type: IC_TYPE_Host
+  component: IC
+  message_file_index: 101
+  response_type: svc_status
+parameters:
+  - name: host_name
+    type: string
+    mandatory: true
+  - name: ip_address
+    type: string
+    mandatory: true
